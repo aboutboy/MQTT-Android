@@ -3,7 +3,10 @@
 &emsp;&emsp;常用于 IOT 物联网和一些需要服务端主动通知客户端的场景。  
 
 ### 二、使用  
-**1. 导入依赖**  
+**1. 导入依赖**
+
+[![](https://jitpack.io/v/Jin-Yx/MQTT-Android.svg)](https://jitpack.io/#Jin-Yx/MQTT-Android)
+
 ```groovy
 dependencies {
     implementation 'com.jinyx.mqtt:mqtt:${lastVersion}' 

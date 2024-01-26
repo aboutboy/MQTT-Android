@@ -6,7 +6,7 @@ import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.os.Handler
 import android.os.Looper
-import android.support.annotation.RequiresPermission
+import androidx.annotation.RequiresPermission
 import com.jinyx.mqtt.paho.MqttAndroidClient
 import org.eclipse.paho.client.mqttv3.*
 import kotlin.math.max

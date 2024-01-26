@@ -6,7 +6,7 @@
 **1. 导入依赖**  
 ```groovy
 dependencies {
-    implementation 'com.jinyx.mqtt:mqtt:0.0.1' 
+    implementation 'com.jinyx.mqtt:mqtt:${lastVersion}' 
 }
 ```
 

@@ -72,9 +72,13 @@ class AlarmPingSender implements MqttPingSender {
 			//Ignore unregister errors.
 		}
 
-		pendingIntent = PendingIntent.getBroadcast(
-			service, 0, new Intent(action), PendingIntent.FLAG_UPDATE_CURRENT
-		);
+		int flag;
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+			flag = PendingIntent.FLAG_IMMUTABLE;
+		} else {
+			flag = PendingIntent.FLAG_UPDATE_CURRENT;
+		}
+		pendingIntent = PendingIntent.getBroadcast(service, 0, new Intent(action), flag);
 
 		schedule(comms.getKeepAlive());
 		hasStarted = true;
@@ -109,7 +113,7 @@ class AlarmPingSender implements MqttPingSender {
 			// the device to run this task whilst dosing.
 			alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, nextAlarmInMilliseconds,
 					pendingIntent);
-		} else if (Build.VERSION.SDK_INT >= 19) {
+		} else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
 			alarmManager.setExact(AlarmManager.RTC_WAKEUP, nextAlarmInMilliseconds,
 					pendingIntent);
 		} else {

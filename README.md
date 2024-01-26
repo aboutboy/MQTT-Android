@@ -8,10 +8,15 @@
 [![](https://jitpack.io/v/Jin-Yx/MQTT-Android.svg)](https://jitpack.io/#Jin-Yx/MQTT-Android)
 
 ```groovy
+// 增加 jitpack 仓库依赖
+maven { url "https://jitpack.io" }
+
 dependencies {
-    implementation 'com.jinyx.mqtt:mqtt:${lastVersion}' 
+    // implementation 'com.jinyx.mqtt:mqtt:0.0.1'
+    implementation 'com.github.Jin-Yx:MQTT-Android:${lastVersion}'
 }
 ```
+
 
 **2. 创建 MqttHelper 辅助类，设置回调监听**  
 ```kotlin

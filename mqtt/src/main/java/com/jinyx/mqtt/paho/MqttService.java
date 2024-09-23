@@ -640,19 +640,19 @@ public class MqttService extends Service implements MqttTraceHandler {
      */
     @Override
     public int onStartCommand(final Intent intent, int flags, final int startId) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            String channelId = "mqtt";
-            String channelName = "mqttChannel";
-            NotificationChannel channel = new NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_DEFAULT);
-            channel.setLockscreenVisibility(Notification.FLAG_FOREGROUND_SERVICE);
-            NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-            if (manager != null) {
-                manager.createNotificationChannel(channel);
-            }
-            startForeground(KEY_NOTIFY_ID, buildNotification(new Notification.Builder(getApplicationContext(), channelId)));
-        } else if (getApplicationContext().getResources().getBoolean(R.bool.mqtt_foreground_notification_low_26)) {
-            startForeground(KEY_NOTIFY_ID, buildNotification(new Notification.Builder(getApplicationContext())));
-        }
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//            String channelId = "mqtt";
+//            String channelName = "mqttChannel";
+//            NotificationChannel channel = new NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_DEFAULT);
+//            channel.setLockscreenVisibility(Notification.FLAG_FOREGROUND_SERVICE);
+//            NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+//            if (manager != null) {
+//                manager.createNotificationChannel(channel);
+//            }
+//            startForeground(KEY_NOTIFY_ID, buildNotification(new Notification.Builder(getApplicationContext(), channelId)));
+//        } else if (getApplicationContext().getResources().getBoolean(R.bool.mqtt_foreground_notification_low_26)) {
+//            startForeground(KEY_NOTIFY_ID, buildNotification(new Notification.Builder(getApplicationContext())));
+//        }
         registerBroadcastReceivers();
         return START_STICKY;
     }
